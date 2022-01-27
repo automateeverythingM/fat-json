@@ -1,10 +1,7 @@
 import React, { createContext, Dispatch, useReducer } from 'react';
-import generatedResource from '../assets/generated.json';
-import { IGeneratedResponse, IProviderProps, IState } from '../interfaces/all';
-import { DispatchAction } from '../types/all';
+import { DispatchAction, IProviderProps, IState } from '../types/app';
 import { reducer } from './reducer';
 
-const items = generatedResource as IGeneratedResponse[];
 
 export const StateContext = createContext<{
 	state: IState;
@@ -12,7 +9,7 @@ export const StateContext = createContext<{
 }>({ state: [], dispatch: () => null });
 
 
-const initialState: IState = items;
+const initialState: IState = [];
 
 
 export const Provider = ({ children }: IProviderProps) => {

@@ -1,4 +1,4 @@
-import { Payload } from '../types/all';
+import { Payload } from '../types/app';
 
 export const CHANGE = 'CHANGE';
 

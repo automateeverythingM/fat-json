@@ -2,7 +2,7 @@ import React, { useCallback, useContext } from 'react';
 import { changeInputValue } from '../context/actions';
 import { StateContext } from '../context/Context';
 import { Item } from './Item';
-import { Payload as onChangeProps } from '../types/all';
+import { Payload as onChangeProps } from '../types/app';
 
 
 export const List = () => {

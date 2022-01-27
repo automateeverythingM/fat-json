@@ -1,8 +1,8 @@
 import React, { ChangeEvent } from 'react';
-import { Payload as onChangeProps, Value } from '../types/all';
+import { Payload as onChangeProps, Value } from '../types/app';
 
 export const getInputTypeFromPropValue = (
-	{id, prop, value}:onChangeProps,
+	{ id, prop, value }: onChangeProps,
 	onChangeValue: (value: Value) => void
 ) => {
 	if (typeof value === 'number')
