@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { getInputTypeFromPropValue } from '../helpers/utils';
-import { Payload as onChangeProps, Value } from '../types/app';
+import { InputChangePayload as onChangeProps, Value } from '../types/app';
+import { PropertyDisplay } from './PropertyDisplay';
 
 interface IPropertyModifierProps {
 	prop: string;
@@ -11,8 +12,8 @@ interface IPropertyModifierProps {
 
 export const PropertyModifier = React.memo(
 	({ id, prop, value, onChangeValue }: IPropertyModifierProps) => {
+
 		const input = useMemo(() =>
-			!(prop === 'id' && value) &&
 			getInputTypeFromPropValue({ value, id, prop }, (value: Value) =>
 				onChangeValue({ id, prop, value })
 			), [id, onChangeValue, prop, value]);
@@ -20,7 +21,7 @@ export const PropertyModifier = React.memo(
 
 		return (
 			<div>
-				<div>{`${prop} : ${value}`}</div>
+				<PropertyDisplay item={{[prop]:value}}/>
 				{input}
 			</div>
 		);

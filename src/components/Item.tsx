@@ -1,26 +1,25 @@
 import React from 'react';
-import { IGeneratedResponse, Payload as onChangeProps } from '../types/app';
+import { InputChangePayload as onChangeProps, Value } from '../types/app';
 import { PropertyModifier } from './PropertyModifier';
 
 interface IItemProps {
-	item: IGeneratedResponse;
+	item: any;
 	onChange: ({ id, prop, value }: onChangeProps) => void;
 }
 
 export const Item = React.memo(({ item, onChange }: IItemProps) => {
-
-
-
 	return (
 		<div className="single-item">
-			{Object.keys(item).map(key => (
-				<PropertyModifier
+			{Object.keys(item).map((key) => {
+				const id = item.id || item.tempId;
+				return <PropertyModifier
 					onChangeValue={onChange}
 					prop={key}
-					id={item.id}
-					value={item[key as keyof IGeneratedResponse]}
-					key={`${item.id}${key}`} />
-			))}
+					id={id}
+					value={item[key]}
+					key={`${id}${key}`}
+				/>;
+			})}
 		</div>
 	);
 });

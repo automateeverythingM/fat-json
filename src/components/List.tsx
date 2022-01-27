@@ -2,11 +2,12 @@ import React, { useCallback, useContext } from 'react';
 import { changeInputValue } from '../context/actions';
 import { StateContext } from '../context/Context';
 import { Item } from './Item';
-import { Payload as onChangeProps } from '../types/app';
+import { InputChangePayload as onChangeProps } from '../types/app';
 
 
 export const List = () => {
 	const { state, dispatch } = useContext(StateContext);
+
 	const changeValue = useCallback(
 		({ id, prop, value }: onChangeProps) => {
 			dispatch(changeInputValue({ id, prop, value }));
@@ -16,7 +17,7 @@ export const List = () => {
 
 	return (
 		<div className="list">
-			{state.map(item => (
+			{state.loadedValue.map((item:any) => (
 				<Item key={item.id} item={item} onChange={changeValue} />
 			))}
 		</div>
