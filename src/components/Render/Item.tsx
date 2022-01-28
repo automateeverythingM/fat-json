@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputChangePayload as onChangeProps, Value } from '../types/app';
+import { InputChangePayload as onChangeProps } from '../../types/app';
 import { PropertyModifier } from './PropertyModifier';
 
 interface IItemProps {
@@ -10,16 +10,15 @@ interface IItemProps {
 export const Item = React.memo(({ item, onChange }: IItemProps) => {
 	return (
 		<div className="single-item">
-			{Object.keys(item).map((key) => {
-				const id = item.id || item.tempId;
-				return <PropertyModifier
+			{Object.keys(item).map(key => (
+				<PropertyModifier
 					onChangeValue={onChange}
 					prop={key}
-					id={id}
+					id={item.id}
 					value={item[key]}
-					key={`${id}${key}`}
-				/>;
-			})}
+					key={`${item.id}${key}`}
+				/>
+			))}
 		</div>
 	);
 });

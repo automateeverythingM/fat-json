@@ -11,8 +11,6 @@ export type DispatchAction = {
 };
 
 export type KeyofIGeneratedResponse = keyof IGeneratedResponse;
-export type Value = string | number | boolean;
-
 export type InputChangePayload = {
 	id: string;
 	prop: string;

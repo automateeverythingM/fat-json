@@ -22,3 +22,7 @@
 	justify-content: center;
 	min-height: 100vh;
 }
+
+.w-100 {
+	width: 100%;
+}

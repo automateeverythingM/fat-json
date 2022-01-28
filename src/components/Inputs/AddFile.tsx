@@ -1,9 +1,8 @@
 import React, { ChangeEvent, useContext } from 'react';
-import { changeStateValue } from '../context/actions';
-import { StateContext } from '../context/Context';
-// interface IAddFileProps {}
+import { changeStateValue } from '../../context/actions';
+import { StateContext } from '../../context/Context';
 
-export const AddFile = ({}) => {
+export const AddFile = () => {
 	const { dispatch } = useContext(StateContext);
 
 	const handleAddingFile = (event: ChangeEvent<HTMLInputElement>) => {
